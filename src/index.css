@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-input{
+margin: 400px 100px 100px 700px;
+
+
+}
+.card_img{
+width: 100%;
+
+}
+.Card{
+ border: 1px solid pink;
+ border-radius: 8px;
+ padding:20px;
+ width:300px;
+ box-shadow: 0px 2px 2px #ccc;
+ text-align:center;
+ margin: 100px 150px 400px 700px;
+ background-color: bisque;
+
+}
+#input-title{
+  margin:0px 10px 10px 10px ;
+}
