@@ -2,7 +2,7 @@ import React from 'react'
 
   
 
- const Page=()=> {
+ const Form=()=> {
   const handleClick=()=>{
     const judul= document.getElementById('input-title').value;
     
@@ -25,4 +25,4 @@ import React from 'react'
     </div>
   )
 }
-export default Page;
+export default Form;
