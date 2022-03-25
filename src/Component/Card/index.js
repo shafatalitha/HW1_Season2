@@ -13,7 +13,7 @@ const Card=({title,artist,img})=> {
         <h3 className="card_artist">{artist}</h3>
       </div>
       <div className='btn-wrapper'>
-      <input type="submit" id="btn-submit" values="Search" />
+      <button className="btn-select" >Select</button>
       </div>
     
     </div>

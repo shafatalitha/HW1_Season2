@@ -22,16 +22,29 @@ width: 100%;
 
 }
 .Card{
- border: 1px solid pink;
+ border: 1px solid bisque;
  border-radius: 8px;
  padding:20px;
  width:300px;
  box-shadow: 0px 2px 2px #ccc;
  text-align:center;
- margin: 100px 150px 400px 700px;
  background-color: bisque;
 
 }
 #input-title{
   margin:0px 10px 10px 10px ;
+}
+.album-card{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+
+}
+.btn-select{
+  background-color:burlywood;
+  min-height: 40px;
+  min-width :40px;
+  color:brown;
+  border:none;
+
 }
