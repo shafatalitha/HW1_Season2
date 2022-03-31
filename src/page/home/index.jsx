@@ -1,57 +1,63 @@
 
-import React, {Component}from 'react'
+import React, {useEffect,useState}from 'react'
 import Card from "../../Component/Card";
 import Search from '../../Component/Search';
-import data from "../../data/data";
-import Config from "../../lib/config"
+import config from '../../lib/config'
 
-class Home extends Component{
+const Home=()=>{
+const[accessToken, setAccessToken]=useState('');
+const[isLogin, setIsLogin]=useState(false);
+const[tracks,setTracks]=useState([]);
+const [selectedTracksUri, setSelectedTracksUri] = useState([]);
+  useEffect(()=>{
+   
+    const access_token= new URLSearchParams(window.location.hash).get('#access_token')
+    setAccessToken(access_token) 
+    setIsLogin(access_token !== null)
+  },[]);
 
-  state = {
-    accessToken:'',
-    isLogin: false,
-  }
   
-  getHashParams() {
-    const hashParams = {};
-    const r = /([^&;=]+)=?([^&;]*)/g;
-    const q = window.location.hash.substring(1);
-    let e = r.exec(q);
-    while (e) {
-      hashParams[e[1]] = decodeURIComponent(e[2]);
-      e = r.exec(q);
-    }
-    return hashParams;
-  }
+  const onSuccessSearch = (searchTracks) => {
+   
+    const selectedTracks = filterSelectedTracks();
+    const searchDistincTracks = searchTracks.filter(track => !selectedTracksUri.includes(track.uri));
 
-  componentDidMount(){
-    const params = this.getHashParams();
-    const {access_token:accessToken}= params;
-
-    this.setState({accessToken, isLogin: accessToken !== undefined})
+    setTracks([...selectedTracks, ...searchDistincTracks]);
   }
-  generateSpotifyLinkAuthorize(){
+ const generateSpotifyLinkAuthorize=()=>{
     console.log(process.env)
     const state = Date.now().toString()
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID
-    return`${Config.SPOTIFY_BASE_URL}/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${Config.SPOTIFY_SCOPE}`
+    return`https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${config.SPOTIFY_SCOPE}`
   }
-  render(){
+  const toggleSelect = (track) => {
+    const uri = track.uri;
+
+    if (selectedTracksUri.includes(uri)) {
+      setSelectedTracksUri(selectedTracksUri.filter(item => item !== uri));
+    } else {
+      setSelectedTracksUri([...selectedTracksUri, uri]);
+    }
+  }
+  const filterSelectedTracks = () => {
+    return tracks.filter(track => selectedTracksUri.includes(track.uri));
+  }
+  
     return(
     
             <div className="album-wrap">
-              {!this.state.isLogin&&(
-              <a href={ this.generateSpotifyLinkAuthorize()}>Authorize</a>)}
-              <Search/>
+              {!isLogin&&(
+              <a href={generateSpotifyLinkAuthorize()}>Authorize</a>)}
+              <Search accessToken={accessToken} onSuccess={(tracks) => onSuccessSearch(tracks)}/>
               <div className="album-card">
-                {data.map((item)=>(
-                    <Card key={item.id} title= {item.name} artist={item.artists[0].name} img={item.album.images[0].url} />
+                {tracks.map((item)=>(
+                    <Card key={item.id} title= {item.name} artist={item.artists[0].name} img={item.album.images[0].url} toggleSelect={() => toggleSelect(item)} />
                 ))}
                 </div>
             </div>
           )
     
-  }
+  
 }
 
 
