@@ -12,6 +12,7 @@ export const searchTrack = async (query, accessToken) => {
   const response = await axios.get(`${config.SPOTIFY_BASE_URL}/search?type=track&q=${query}`, requestOptions);
 
   return response.data;
+  
 }//fetch spotify track data and called in search-bar component
 
 export const getUserProfile = async (accessToken) => {

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { addTracksToPlaylist, createPlaylist } from '../../lib/fetchApi';
 
 
 const sendFormNetworkCall = (data) => console.log(data);
 
-const Form = ({ accessToken, userId, uriTracks }) =>{
+const Form = ({ userId, uriTracks }) =>{
+   const accessToken = useSelector((state)=>state.auth.accessToken);
     const [form, setForm] = useState({
         title:'',
         description:''

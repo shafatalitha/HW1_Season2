@@ -1,7 +1,9 @@
 import React, { useState}from 'react'
 import { searchTrack } from '../../lib/fetchApi';
+import { useSelector } from 'react-redux';
+const Search= ({ onSuccess}) =>{
+  const accessToken = useSelector((state)=>state.auth.accessToken);
 
-const Search= ({accessToken, onSuccess}) =>{
   const [text, setText] = useState('');
 
   const handleInput = (e) => {

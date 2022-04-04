@@ -5,23 +5,25 @@ import Search from '../../Component/Search';
 import config from '../../lib/config/index'
 import { getUserProfile } from '../../lib/fetchApi/index';
 import Form from '../../Component/Form';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../reducer/authReducer';
 
 const Home=()=>{
-const[accessToken, setAccessToken]=useState('');
-const[isLogin, setIsLogin]=useState(false);
+
 const[tracks,setTracks]=useState([]);
 const [selectedTracksUri, setSelectedTracksUri] = useState([]);
 const [selectedTracks, setSelectedTracks] = useState([]);
 const [isInSearch, setIsInSearch] = useState(false);
 const [user, setUser] = useState({});
+const isLogin = useSelector((state)=>state.auth.isLogin);
+const dispatch = useDispatch();
 
   useEffect(() => {
     const accessTokenParams = new URLSearchParams(window.location.hash).get('#access_token');
 
     if (accessTokenParams !== null) {
-      setAccessToken(accessTokenParams);
-      setIsLogin(accessTokenParams !== null);
+      dispatch(login(accessTokenParams))
+      
 
       const setUserProfile = async () => {
         try {
@@ -93,14 +95,14 @@ const [user, setUser] = useState({});
         <main className="container">
           <div className="form">
             <Form 
-              accessToken={accessToken}
+              // accessToken={accessToken}
               userId={user.id}
               uriTracks={selectedTracksUri}
             />
           </div>
           <div className="search__playlist">
             <Search
-              accessToken={accessToken}
+              // accessToken={accessToken}
               onSuccess={onSuccessSearch}
               onClearSearch={clearSearch}
             />
