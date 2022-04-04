@@ -1,8 +1,5 @@
 import React,{useState} from 'react';
 
-
-
-
 const Card=({title,artist,img,toggleSelect})=> {
   const [isSelected, setIsSelected] = useState(false);
 
