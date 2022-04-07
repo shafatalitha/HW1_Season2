@@ -5,9 +5,10 @@ import { addTracksToPlaylist, createPlaylist } from '../../lib/fetchApi';
 
 const sendFormNetworkCall = (data) => console.log(data);
 
-const Form = ({ userId, uriTracks }) =>{
+const Form = ({  uriTracks }) =>{
    const accessToken = useSelector((state)=>state.auth.accessToken);
-    const [form, setForm] = useState({
+   const userId = useSelector((state) => state.auth.user.id);
+   const [form, setForm] = useState({
         title:'',
         description:''
     });
