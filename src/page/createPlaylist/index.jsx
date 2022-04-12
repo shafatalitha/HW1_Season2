@@ -1,7 +1,8 @@
 import Search from "../../Component/search";
 import { useState } from "react";
 import Form from "../../Component/form";
-import Card from"../../Component/card";
+import Card from "../../Component/card";
+import "./index.css";
 
 const CreatePlayList = () => {
   const [tracks, setTracks] = useState([]);
@@ -29,10 +30,12 @@ const CreatePlayList = () => {
   const filterSelectedTracks = () => {
     return tracks.filter((track) => selected.includes(track.uri));
   };
-
+  // console.log(tracks)
   return (
     <div className="home">
-      <Form uriTracks={selected} />
+      <div className="create-playlist">
+        <Form uriTracks={selected} />
+      </div>
       <div className="search-bar">
         <Search onSuccess={(tracks) => onSuccessSearch(tracks)} />
       </div>
@@ -42,7 +45,8 @@ const CreatePlayList = () => {
             key={track.id}
             img={track.album.images[0].url}
             title={track.name}
-            artists={track.artists[0].name}
+            artist={track.artists[0].name}
+            albumname={track.album.images[0].name}
             toggleSelect={() => toggleSelect(track)}
           />
         ))}

@@ -1,0 +1,25 @@
+.create-playlist{
+    display: grid;
+    justify-content: center;
+    color:rgb(255 255 255);
+}
+.search-bar{
+    display:grid;
+    justify-content : center;
+    margin: 20px 0px 20px 50px;
+ 
+
+    
+}
+.songs{
+    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 50px;
+}
+
+button{
+    background-color:rgb(30 215 96);
+    color:black;
+    
+}
