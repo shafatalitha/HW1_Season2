@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { searchTrack } from "../../lib/fetchApi";
 import { useSelector } from "react-redux";
+import Button from '@mui/material/Button';
+
 const Search = ({ onSuccess }) => {
   const accessToken = useSelector((state) => state.auth.accessToken);
 
@@ -32,9 +34,12 @@ const Search = ({ onSuccess }) => {
         required
         onChange={handleInput}
       />
-      <button type="submit" className="btn-search">
+      <Button type="submit" variant="contained" className="btn-search">
         Search
-      </button>
+      </Button>
+      {/* <button type="submit" className="btn-search">
+      Search
+      </button> */}
     </form>
   );
 };

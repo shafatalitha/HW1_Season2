@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { addTracksToPlaylist, createPlaylist } from "../../lib/fetchApi";
-
+import { Button } from '@mui/material';
 const sendFormNetworkCall = (data) => console.log(data);
 
 const Form = ({ uriTracks }) => {
@@ -73,7 +73,7 @@ const Form = ({ uriTracks }) => {
           </div>
         </div>
         <div className="form__footer">
-          <button className="submit">Create</button>
+          <Button type="submit" className="submit" variant="contained">Create</Button>
         </div>
       </div>
     </form>
