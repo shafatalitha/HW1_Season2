@@ -1,25 +1,31 @@
-import React, { useState } from "react";
+import React, { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { searchTrack } from "../../lib/fetchApi";
 import { useSelector } from "react-redux";
 import Button from '@mui/material/Button';
+import { TRootState } from "../../store";
 
-const Search = ({ onSuccess }) => {
-  const accessToken = useSelector((state) => state.auth.accessToken);
+interface IProps{
+  onSuccess:(tracks:any[], text:string)=>void;
 
-  const [text, setText] = useState("");
+}
 
-  const handleInput = (e) => {
+const Search : React.FC<IProps> = ({ onSuccess }) => {
+  const accessToken: string = useSelector((state:TRootState) => state.auth.accessToken);
+
+  const [text, setText] = useState<string>("");
+
+  const handleInput: ChangeEventHandler<HTMLInputElement> = (e) => {
     setText(e.target.value);
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit:FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     try {
       const response = await searchTrack(text, accessToken);
 
       const tracks = response.tracks.items;
-      onSuccess(tracks);
+      onSuccess(tracks,text);
     } catch (e) {
       alert(e);
     }
@@ -37,9 +43,7 @@ const Search = ({ onSuccess }) => {
       <Button type="submit" variant="contained" className="btn-search">
         Search
       </Button>
-      {/* <button type="submit" className="btn-search">
-      Search
-      </button> */}
+      
     </form>
   );
 };

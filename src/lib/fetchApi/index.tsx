@@ -1,15 +1,18 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+
 import config from "../config";
 
-export const searchTrack = async (query, accessToken) => {
-  const requestOptions = {
+type TSearchTrack =(query: string, accessToken: string)=>Promise<any>;
+
+export const searchTrack: TSearchTrack = async (query, accessToken) => {
+  const requestOptions:AxiosRequestConfig<any>= {
     headers: {
       Authorization: "Bearer " + accessToken,
       "Content-Type": "application/json",
     },
   };
 
-  const response = await axios.get(
+  const response:AxiosResponse = await axios.get(
     `${config.SPOTIFY_BASE_URL}/search?type=track&q=${query}`,
     requestOptions
   );
@@ -17,7 +20,8 @@ export const searchTrack = async (query, accessToken) => {
   return response.data;
 }; //fetch spotify track data and called in search-bar component
 
-export const getUserProfile = async (accessToken) => {
+type TGetUserProfile = (accesToken:string)=>Promise<any>;
+export const getUserProfile:TGetUserProfile = async (accessToken) => {
   const requestOptions = {
     headers: {
       Authorization: "Bearer " + accessToken,
@@ -32,15 +36,20 @@ export const getUserProfile = async (accessToken) => {
 
   return response.data;
 }; //fetch user profile data and called in home
+interface IPlaylist{
+  name: string;
+  description :string;
 
-export const createPlaylist = async (
+}
+type TCreatePlaylist =(accessToken:string,userId:string, playlist:IPlaylist)=>Promise<any>
+export const createPlaylist:TCreatePlaylist = async (
   accessToken,
   userId,
-  { name, description }
+  playlist
 ) => {
   const data = JSON.stringify({
-    name,
-    description,
+    name:playlist.name,
+    description:playlist.description,
     public: false,
     collaborative: false,
   });
@@ -61,7 +70,8 @@ export const createPlaylist = async (
   return response.data;
 };
 
-export const addTracksToPlaylist = async (accessToken, playlistId, uris) => {
+type TAddTrackToPlaylist =(accessToken:string,playlistId:string, uris:string)=>Promise<any>
+export const addTracksToPlaylist:TAddTrackToPlaylist = async (accessToken, playlistId, uris) => {
   const data = JSON.stringify({
     uris,
   });
