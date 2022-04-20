@@ -20,7 +20,7 @@ export const searchTrack: TSearchTrack = async (query, accessToken) => {
   return response.data;
 }; //fetch spotify track data and called in search-bar component
 
-type TGetUserProfile = (accesToken:string)=>Promise<any>;
+type TGetUserProfile = (accessToken:string)=>Promise<any>;
 export const getUserProfile:TGetUserProfile = async (accessToken) => {
   const requestOptions = {
     headers: {

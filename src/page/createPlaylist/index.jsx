@@ -1,8 +1,8 @@
 import Search from "../../Component/search";
 import { useState } from "react";
 import Form from "../../Component/form";
-import Card from "../../Component/card";
 import "./index.css";
+import Tracks from "../../Component/tracks";
 
 const CreatePlayList = () => {
   const [tracks, setTracks] = useState([]);
@@ -39,9 +39,9 @@ const CreatePlayList = () => {
       <div className="search-bar">
         <Search onSuccess={(tracks) => onSuccessSearch(tracks)} />
       </div>
-      <div className="songs">
+      <div className="songs"data-testid="tracks-list">
         {tracks.map((track) => (
-          <Card
+          <Tracks
             key={track.id}
             img={track.album.images[0].url}
             title={track.name}

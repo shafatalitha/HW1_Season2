@@ -11,8 +11,8 @@ import { useSelector } from "react-redux";
 import Navbar from "./Component/navbar";
 
 function App() {
+  
   const isLogin = useSelector((state) => state.auth.isLogin);
-
   return (
     <div className="App">
     <Router>

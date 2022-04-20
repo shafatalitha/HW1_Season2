@@ -8,7 +8,7 @@ interface IProps{
   toggleSelect :()=>void;
 }
 
-const Card : React.FC<IProps> = ({ title, artist, img,  toggleSelect }) => {
+const Tracks : React.FC<IProps> = ({ title, artist, img,  toggleSelect }) => {
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   const handleToggleSelect : () =>void=()=> {
@@ -16,7 +16,7 @@ const Card : React.FC<IProps> = ({ title, artist, img,  toggleSelect }) => {
     toggleSelect();
   };
   return (
-    <div className="card">
+    <div datatest-id="playlist-tracks" className="card">
       <img src={img} alt={title} className="card_img" />
 
       <div className="card-wrapper">
@@ -31,4 +31,4 @@ const Card : React.FC<IProps> = ({ title, artist, img,  toggleSelect }) => {
     </div>
   );
 };
-export default Card;
+export default Tracks;
