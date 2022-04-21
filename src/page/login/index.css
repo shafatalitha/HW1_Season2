@@ -1,0 +1,45 @@
+body{
+    background-color: #1ed760;
+}
+
+h1{
+    display:grid;
+    justify-content:center ;
+    color:white;
+    padding-top:100px;
+
+}
+
+.auth-link{
+    display:grid;
+    justify-content : center;
+    margin:200px 200px 200px 200px;
+   
+}
+
+
+
+
+a:link {
+    background-color:rgb(30, 215, 96);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 800;
+    font-size:0.8em;
+    border-radius: 20px;
+  }
+
+  a:link:hover{
+    background-color:rgb(29, 185, 84);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 800;
+    font-size:0.8em;
+    border-radius: 20px;
+  }
+
+  

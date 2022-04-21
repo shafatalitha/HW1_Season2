@@ -6,10 +6,7 @@ export default function Navbar() {
    return(<div>
     <ul>
       <li>
-        <Link to="/create-playlist">Create Playlist</Link>
-      </li>
-      <li>
-        <Link to="/">Login</Link>
+        <Link to="/">Logout</Link>
       </li>
     </ul>
   </div>);

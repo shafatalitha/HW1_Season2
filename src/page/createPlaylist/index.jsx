@@ -30,7 +30,7 @@ const CreatePlayList = () => {
   const filterSelectedTracks = () => {
     return tracks.filter((track) => selected.includes(track.uri));
   };
-  // console.log(tracks)
+  console.log(tracks)
   return (
     <div className="home">
       <div className="create-playlist">
@@ -47,6 +47,7 @@ const CreatePlayList = () => {
             title={track.name}
             artist={track.artists[0].name}
             albumname={track.album.images[0].name}
+            duration={track.duration_ms}
             toggleSelect={() => toggleSelect(track)}
           />
         ))}

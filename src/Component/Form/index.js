@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { addTracksToPlaylist, createPlaylist } from "../../lib/fetchApi";
-import { Button } from '@mui/material';
+import { Button } from "@mui/material";
+import "./index.css"
 const sendFormNetworkCall = (data) => console.log(data);
 
 const Form = ({ uriTracks }) => {
@@ -41,6 +42,18 @@ const Form = ({ uriTracks }) => {
     setForm({ ...form, [name]: value });
     console.log(form);
   };
+  const ButtonStyles = {
+    fontSize: "0.7rem",
+    fontWeight: 700,
+    textTransform: "capitalize",
+    borderRadius: 2.5,
+    "&.MuiButton-contained": {
+      backgroundColor: "rgb(30, 215, 96)",
+      "&:hover": {
+        backgroundColor: "rgb(29, 185, 84)",
+      },
+    },
+  };
 
   return (
     <form className="form" onSubmit={handleForm}>
@@ -73,7 +86,15 @@ const Form = ({ uriTracks }) => {
           </div>
         </div>
         <div className="form__footer">
-          <Button type="submit" className="submit" variant="contained">Create</Button>
+          <Button
+            type="submit"
+            size="small"
+            sx={ButtonStyles}
+            className="submit"
+            variant="contained"
+          >
+            Create
+          </Button>
         </div>
       </div>
     </form>

@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter as Router,
   Route,
@@ -11,23 +10,22 @@ import { useSelector } from "react-redux";
 import Navbar from "./Component/navbar";
 
 function App() {
-  
   const isLogin = useSelector((state) => state.auth.isLogin);
   return (
     <div className="App">
-    <Router>
-      <div>
-       <Navbar/>
-      <Switch>
-        <Route path={"/create-playlist"}>
-          {isLogin ? <CreatePlayList /> : <Redirect to={"/"}/>}
-        </Route>
-        <Route path={"/"}>
-          <Login />
-        </Route>
-      </Switch>
-      </div>
-    </Router>
+      <Router>
+        <div>
+          <Switch>
+            <Route path={"/create-playlist"}>
+              <Navbar />
+              {isLogin ? <CreatePlayList /> : <Redirect to={"/"} />}
+            </Route>
+            <Route path={"/"}>
+              <Login />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }

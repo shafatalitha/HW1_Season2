@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import config from "../../lib/config";
 import { login } from "../../reducer/authReducer";
-
+import './index.css'
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -50,11 +50,15 @@ const Login = () => {
     return `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${config.SPOTIFY_SCOPE}`;
   };
   return (
+    <>
+   
+    <h1>Hello, Welcome to Saftatify!</h1>
     <div className="auth-link">
-      <a id="link" href={generateSpotifyLinkAuthorize()}>
+      <a id="link-login" href={generateSpotifyLinkAuthorize()}>
         Login
       </a>
     </div>
+    </>
   );
 };
 export default Login;
