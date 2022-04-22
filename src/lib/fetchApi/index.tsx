@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-import Config from "../Config";
+import Config from "../config";
 
 type TSearchTrack =(query: string, accessToken: string)=>Promise<any>;
 
