@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import config from "../../lib/config";
+import Config from "../../lib/Config";
 import { login } from "../../reducer/authReducer";
 import './index.css'
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
           };
 
           const response = await fetch(
-            `${config.SPOTIFY_BASE_URL}/me`,
+            `${Config.SPOTIFY_BASE_URL}/me`,
             requestOptions
           ).then((data) => data.json());
           dispatch(
@@ -47,7 +47,7 @@ const Login = () => {
   const generateSpotifyLinkAuthorize = () => {
     const state = Date.now().toString();
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-    return `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${config.SPOTIFY_SCOPE}`;
+    return `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${Config.SPOTIFY_SCOPE}`;
   };
   return (
     <>

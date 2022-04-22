@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { addTracksToPlaylist, createPlaylist } from "../../lib/fetchApi";
 import { Button } from "@mui/material";
-import "./index.css"
+import "./index.css";
 const sendFormNetworkCall = (data) => console.log(data);
 
 const Form = ({ uriTracks }) => {

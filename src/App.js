@@ -5,9 +5,10 @@ import {
   Switch,
 } from "react-router-dom";
 import CreatePlayList from "./page/createPlaylist";
-import Login from "./page/login";
 import { useSelector } from "react-redux";
-import Navbar from "./Component/navbar";
+import Navbar from "./Component/Navbar/index";
+import Login from "./page/Login";
+;
 
 
 function App() {

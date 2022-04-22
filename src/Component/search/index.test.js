@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import Search from "./index";
+import Search from ".";
 import { render, screen, cleanup } from "@testing-library/react";
 import store from "../../store";
 

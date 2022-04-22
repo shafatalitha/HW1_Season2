@@ -1,8 +1,9 @@
-import Search from "../../Component/search";
+import Search from "../../Component/Search";
 import { useState } from "react";
-import Form from "../../Component/form";
+import Form from "../../Component/Form";
 import "./index.css";
-import Tracks from "../../Component/tracks";
+import Tracks from "../../Component/Tracks";
+
 
 const CreatePlayList = () => {
   const [tracks, setTracks] = useState([]);

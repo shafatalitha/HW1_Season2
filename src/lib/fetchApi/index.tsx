@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
-import config from "../config";
+import Config from "../Config";
 
 type TSearchTrack =(query: string, accessToken: string)=>Promise<any>;
 
@@ -13,7 +13,7 @@ export const searchTrack: TSearchTrack = async (query, accessToken) => {
   };
 
   const response:AxiosResponse = await axios.get(
-    `${config.SPOTIFY_BASE_URL}/search?type=track&q=${query}`,
+    `${Config.SPOTIFY_BASE_URL}/search?type=track&q=${query}`,
     requestOptions
   );
 
@@ -30,7 +30,7 @@ export const getUserProfile:TGetUserProfile = async (accessToken) => {
   };
 
   const response = await axios.get(
-    `${config.SPOTIFY_BASE_URL}/me`,
+    `${Config.SPOTIFY_BASE_URL}/me`,
     requestOptions
   );
 
@@ -62,7 +62,7 @@ export const createPlaylist:TCreatePlaylist = async (
   };
 
   const response = await axios.post(
-    `${config.SPOTIFY_BASE_URL}/users/${userId}/playlists`,
+    `${Config.SPOTIFY_BASE_URL}/users/${userId}/playlists`,
     data,
     requestOptions
   );
@@ -84,7 +84,7 @@ export const addTracksToPlaylist:TAddTrackToPlaylist = async (accessToken, playl
   };
 
   const response = await axios.post(
-    `${config.SPOTIFY_BASE_URL}/playlists/${playlistId}/tracks`,
+    `${Config.SPOTIFY_BASE_URL}/playlists/${playlistId}/tracks`,
     data,
     requestOptions
   );
