@@ -47,11 +47,12 @@ const Login = () => {
   const generateSpotifyLinkAuthorize = () => {
     const state = Date.now().toString();
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-    return `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=http://localhost:3000&state=${state}&scope=${Config.SPOTIFY_SCOPE}`;
+    return `https://accounts.spotify.com/authorize?
+    client_id=${clientId}&response_type=token
+    &redirect_uri=https://finalproject-shafatalitha.vercel.app/&state=${state}&scope=${Config.SPOTIFY_SCOPE}`;
   };
   return (
     <>
-   
     <h1>Hello, Welcome to Saftatify!</h1>
     <div className="auth-link">
       <a id="link-login" href={generateSpotifyLinkAuthorize()}>
