@@ -7,7 +7,7 @@ import {
 import CreatePlayList from "./page/createPlaylist/index";
 import { useSelector } from "react-redux";
 import Navbar from "./Component/Navbar/index";
-import Login from "./page/Login/index";
+import Login from "./page/login/index";
 ;
 
 

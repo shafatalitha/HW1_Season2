@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Creating App Spotify Login Clone
+This is an clone app that use Typescript ReactJS, CSS and ReactRedux and use . This project is for GenerasiGIGIH 2022 final project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
