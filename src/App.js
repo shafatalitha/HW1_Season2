@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
           <Switch>
             <Route path={"/create-playlist"}>
               <Navbar />
@@ -25,7 +24,6 @@ function App() {
               <Login />
             </Route>
           </Switch>
-        </div>
       </Router>
     </div>
   );
