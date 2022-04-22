@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./index.css";
 
-export default function Navbar() {
+const Navbar=()=>{
    return(<div>
     <ul>
       <li>
@@ -11,3 +11,5 @@ export default function Navbar() {
     </ul>
   </div>);
 }
+
+export default Navbar
