@@ -4,10 +4,10 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-import CreatePlayList from "./page/createPlaylist";
+import CreatePlayList from "./page/createPlaylist/index";
 import { useSelector } from "react-redux";
 import Navbar from "./Component/Navbar/index";
-import Login from "./page/Login";
+import Login from "./page/Login/index";
 ;
 
 
