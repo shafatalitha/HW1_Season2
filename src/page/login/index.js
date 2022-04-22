@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Config from "../../lib/Config";
+import Config from "../../lib/Config/index";
 import { login } from "../../reducer/authReducer";
 import './index.css'
 const Login = () => {

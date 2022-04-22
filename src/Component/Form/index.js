@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { addTracksToPlaylist, createPlaylist } from "../../lib/fetchApi";
+import { addTracksToPlaylist, createPlaylist } from "../../lib/fetchApi/index";
 import { Button } from "@mui/material";
 import "./index.css";
 const sendFormNetworkCall = (data) => console.log(data);
