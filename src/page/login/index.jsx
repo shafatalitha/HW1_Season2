@@ -49,7 +49,7 @@ const Login = () => {
     const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     return `https://accounts.spotify.com/authorize?
     client_id=${clientId}&response_type=token
-    &redirect_uri=https://finalproject-shafatalitha.vercel.app/&state=${state}&scope=${Config.SPOTIFY_SCOPE}`;
+    &redirect_uri=https://homework-gigih.vercel.app/&state=${state}&scope=${Config.SPOTIFY_SCOPE}`;
   };
   return (
     <>
